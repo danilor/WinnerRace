@@ -1,0 +1,504 @@
+/**
+  MAIN STYLES FILE
+  "Grab this sword, and go to the valley and show it to the ancients. They will give you some words,
+  the last words you will ever need to hear"
+ */
+/**
+Mixins
+ */
+/**
+Using bootstrap breakpoints
+ */
+/**
+Using bootstrap breakpoints
+ */
+@font-face {
+  font-family: "CiscoSansTT Regular";
+  font-style: normal;
+  font-weight: 300 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTRegular.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTRegular.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Oblique";
+  font-style: oblique;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTRegularOblique.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTRegularOblique.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT ExtraLight";
+  font-style: normal;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTExtraLight.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTExtraLight.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT ExtraLight Oblique";
+  font-style: oblique;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTExtraLightOblique.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTExtraLightOblique.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Light";
+  font-style: normal;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTLight.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTLight.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Light Oblique";
+  font-style: oblique;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTLightOblique.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTLightOblique.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Heavy";
+  font-style: normal;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTHeavy.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTHeavy.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Heavy Oblique";
+  font-style: oblique;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTHeavyOblique.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTHeavyOblique.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Bold";
+  font-style: normal;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTBold.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTBold.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Bold Oblique";
+  font-style: oblique;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTBoldOblique.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTBoldOblique.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Medium";
+  font-style: normal;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTMedium.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTMedium.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: "CiscoSansTT Medium Oblique";
+  font-style: oblique;
+  font-weight: 400 !important;
+  src: url("fonts/CiscoSansTT/CiscoSansTTMediumOblique.woff2") format("woff2"), url("fonts/CiscoSansTT/CiscoSansTTMediumOblique.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/**
+COLORS
+The colors information has been added from the page number 5 of the PDF document in this project
+ */
+/**
+New colors
+We should start using this new colors from now on.
+ */
+/**
+Colors for the CTA animation
+ */
+/****
+  END OF COLORS
+ */
+/**
+MRM colors
+ */
+#confetti-canvas {
+  display: block;
+  z-index: 99;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  background-color: #ececec;
+  font-family: Arial;
+}
+
+.main_space {
+  position: relative;
+  background-color: white;
+  width: 95%;
+  max-width: 1250px;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  min-height: 200px;
+  -webkit-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.69);
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.69);
+  background-image: url("./../img/grass.png");
+  background-repeat: repeat;
+  background-size: 100px;
+  background-attachment: fixed;
+  height: auto;
+}
+.main_space .fans_zone {
+  background-image: url("../img/fans.jpg");
+  background-repeat: repeat-x;
+  min-height: 110px;
+  background-size: 110px;
+}
+.main_space .interaction_zone {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.main_space .interaction_zone .controls {
+  position: relative;
+  width: 225px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+.main_space .interaction_zone .controls .start {
+  text-align: center;
+}
+.main_space .interaction_zone .controls .start img {
+  cursor: pointer;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.35);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.main_space .interaction_zone .controls .start img:hover {
+  -webkit-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.7);
+}
+.main_space .interaction_zone .controls .control_element {
+  width: 90%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  font-family: Arial;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 12px;
+  padding: 5px 5px;
+}
+.main_space .interaction_zone .controls .control_element label {
+  font-family: inherit;
+  font-size: inherit;
+}
+.main_space .interaction_zone .controls .control_element .field {
+  font-family: inherit;
+  font-size: inherit;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.main_space .interaction_zone .controls .control_element .field select, .main_space .interaction_zone .controls .control_element .field input {
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+}
+.main_space .interaction_zone .track {
+  position: relative;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #A38058;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.main_space .interaction_zone .track .space {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main_space footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.main_space footer .powered {
+  width: 40%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+.main_space footer .powered a, .main_space footer .powered a:hover, .main_space footer .powered a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.winner_modal {
+  width: 90%;
+  background-color: white;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  min-height: 60px;
+  -webkit-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.69);
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.69);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-between;
+  -moz-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 1024px) {
+  .winner_modal {
+    width: 40%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .winner_modal {
+    width: 55%;
+  }
+}
+@media (min-width: 320px) and (max-width: 599px) {
+  .winner_modal {
+    width: 80%;
+  }
+}
+.winner_modal .illustration {
+  text-align: center;
+}
+.winner_modal .illustration img {
+  width: 125px;
+}
+.winner_modal .content {
+  text-align: center;
+}
+.winner_modal .content h1, .winner_modal .content h2, .winner_modal .content h3, .winner_modal .content h4, .winner_modal .content p {
+  text-align: center;
+}
+.winner_modal .content a, .winner_modal .content a:visited {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #0b93db;
+  -webkit-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.winner_modal .content a:hover {
+  background-color: #00bceb;
+  -webkit-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.single_track {
+  width: 100%;
+  min-height: 30px;
+  position: relative;
+  border-top: 1px dashed white;
+  border-left: 3px white solid;
+  border-right: 3px white solid;
+}
+.single_track .progressBar {
+  min-height: 30px;
+  position: relative;
+}
+.single_track .identifier {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.single_track .identifier .label {
+  min-width: 15%;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.single_track .jockey_space {
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 250ms linear;
+  -moz-transition: all 250ms linear;
+  -o-transition: all 250ms linear;
+  transition: all 250ms linear;
+}
+.single_track .jockey_space img {
+  width: 50px;
+  position: absolute;
+  top: -5px;
+  left: -50px;
+}
+
+.screen_restriction {
+  display: none;
+  /**
+  It shows up for small screens
+   */
+  width: 100vw;
+  height: 100vh;
+  background-color: #e2e2e2;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media (max-width: 1000px) {
+  .screen_restriction {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media (max-height: 599px) {
+  .screen_restriction {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+.screen_restriction .message {
+  text-align: center;
+  width: 95%;
+}
+@media only screen and (min-width: 1024px) {
+  .screen_restriction .message {
+    width: 40%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .screen_restriction .message {
+    width: 55%;
+  }
+}
+@media (min-width: 320px) and (max-width: 599px) {
+  .screen_restriction .message {
+    width: 80%;
+  }
+}
+.screen_restriction .message img {
+  width: 40%;
+}
+@media only screen and (min-width: 1024px) {
+  .screen_restriction .message img {
+    width: 40%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .screen_restriction .message img {
+    width: 55%;
+  }
+}
+@media (min-width: 320px) and (max-width: 599px) {
+  .screen_restriction .message img {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

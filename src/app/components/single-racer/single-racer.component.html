@@ -1,0 +1,43 @@
+<!--<table border="1" width="auto">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>-->
+<!--      Name-->
+<!--    </th>-->
+<!--    <th>-->
+<!--      Current Value-->
+<!--    </th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr>-->
+<!--    <td>-->
+<!--      {{ this.racer.name }}-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      {{ this.racer.currentStep }}-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<div class="single_track">
+
+  <div class="progressBar" style="width:{{this.racer.getPercent()}}%">
+  </div>
+
+  <div class="identifier">
+    <div class="label">
+      {{ this.racer.name }} [{{ this.getRacerPercent() }}%]
+    </div>
+  </div>
+
+  <div class="jockey_space" style="left:{{this.racer.getPercent()}}%">
+
+    <img *ngIf="this.racer.isActive()" src="assets/img/jockey.gif"  class="jockey" />
+    <img *ngIf="!this.racer.isActive()" src="assets/img/rip.png"  class="jockey" />
+  </div>
+
+
+
+</div>

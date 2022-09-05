@@ -1,0 +1,37 @@
+/**
+  Generic Tooltip
+ */
+
+.generic_tooltip {
+  position: relative;
+  overflow: visible;
+
+  cursor: pointer;
+
+  .generic_tooltip_element {
+    display: none;
+    background-color: rgba(13, 39, 77, 0.8);
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    max-width: 40vw;
+    width: 20vw;
+    padding: 8px;
+    border-radius: 6px;
+    @include max_tablet {
+      max-width: 50vw;
+      width: 30vw;
+    }
+    @include max_mobile {
+      max-width: 80vw;
+      width: 40vw;
+    }
+  }
+
+  &:hover {
+    .generic_tooltip_element {
+      display: block !important;
+    }
+  }
+}

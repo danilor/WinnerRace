@@ -1,0 +1,73 @@
+<div class="main_space">
+
+  <app-fans></app-fans>
+
+  <div class="interaction_zone">
+    <div class="controls" *ngIf="!this.raceInProgress">
+      <div class="start" [attr.data-tootik]="'Start Race'" data-tootik-conf="bottom shadow">
+        <img (click)="this.startRace()" src="assets/img/gun.jpg" alt="Start" />
+      </div>
+
+      <div class="control_element" [attr.data-tootik]="'Define how many racers are going to participate'" data-tootik-conf="bottom shadow multiline">
+        <label>
+          Number of Racers
+        </label>
+        <div class="field">
+          <select [(ngModel)]="this.numberOfRacers" (change)="this.buildRace()">
+            <option [value]="o" *ngFor="let o of this.availableRacersOptions">{{ o }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control_element" [attr.data-tootik]="'The more steps, the longer the race'" data-tootik-conf="bottom shadow multiline">
+        <label>
+          Number of Steps
+        </label>
+        <div class="field">
+          <select [(ngModel)]="this.numberOfSteps" (change)="this.buildRace()">
+            <option [value]="o" *ngFor="let o of this.availableNumberOfSteps">{{ o }} steps</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control_element" [attr.data-tootik]="'If yes, the horses will get tired when getting closer to the end of the track'" data-tootik-conf="bottom shadow multiline">
+        <label>
+          Horse Stamina
+        </label>
+        <div class="field">
+          <select [(ngModel)]="this.horseStamina" (change)="this.buildRace()">
+            <option [value]="true">Yes</option>
+            <option [value]="false">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control_element" [attr.data-tootik]="'Several rounds and less racers per round'" data-tootik-conf="bottom shadow multiline">
+        <label>
+          Elimination Mode
+        </label>
+        <div class="field">
+          <select [(ngModel)]="this.eliminationMode" (change)="this.buildRace()">
+            <option [value]="true">Yes</option>
+            <option [value]="false">No</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    <div class="track">
+      <div class="space">
+        <ng-container *ngFor="let racer of this.getAllRacers(); let i = index;">
+          <app-single-racer [racer]="racer"></app-single-racer>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+
+  <app-winner-modal [winner]="this.lastWinner" *ngIf="this.lastWinner !== ''"></app-winner-modal>
+
+</div>
+
+<app-screen-restriction></app-screen-restriction>

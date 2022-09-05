@@ -1,0 +1,198 @@
+
+body {
+  background-color: #ececec;
+  font-family: Arial;
+}
+
+.main_space {
+
+  position: relative;
+  background-color: white;
+  width: $mainSpaceW;
+  max-width: $mainSpaceMaxW;
+  margin-right: auto;
+  margin-left: auto;
+  @include border_rad(8px);
+  min-height: 200px;
+
+  @include set_shadow(0px 0px 24px 4px rgba(0, 0, 0, 0.69));
+  background-image: url("./../img/grass.png");
+  background-repeat: repeat;
+  background-size: 100px;
+  background-attachment: fixed;
+  height: auto;
+  //padding-top: 30px;
+  //padding-bottom: 30px;
+
+
+  .fans_zone {
+    background-image: url('../img/fans.jpg');
+    background-repeat: repeat-x;
+    min-height: 110px;
+    background-size: 110px;
+  }
+
+  .interaction_zone {
+
+
+    @include flex();
+
+
+    .controls {
+      position: relative;
+      width: 225px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 10px;
+
+      .start {
+        text-align: center;
+
+        img {
+          cursor: pointer;
+          max-width: 75%;
+          margin-left: auto;
+          margin-right: auto;
+          @include set_shadow(0px 0px 24px 4px rgba(0, 0, 0, 0.35));
+          @include border_rad(50%);
+        }
+
+        img:hover {
+          @include set_shadow(0px 0px 24px 4px rgba(0, 0, 0, 0.70));
+        }
+      }
+
+      .control_element {
+        width: 90%;
+        @include border_rad(6px);
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: black;
+        font-family: Arial;
+        font-size: 18px;
+        text-align: center;
+
+        margin-top: 12px;
+        padding: 5px 5px;
+
+        label {
+          font-family: inherit;
+          font-size: inherit;
+
+        }
+
+        .field {
+          font-family: inherit;
+          font-size: inherit;
+          padding-top: 6px;
+          padding-bottom: 6px;
+
+          select, input {
+            font-family: inherit;
+            font-size: inherit;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .track {
+
+      position: relative;
+      width: $trackSize;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #A38058;
+
+      @include flex();
+      @include flex_align(center);
+
+      .space {
+        width: $trackSpaceSize;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .powered {
+      width: 40%;
+      @include border_rad(6px);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: black;
+
+      a, a:hover, a:visited {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+}
+
+
+.winner_modal {
+  width: 90%;
+  @include break_desktop {
+    width: 40%;
+  }
+  @include break_tablet {
+    width: 55%;
+  }
+  @include break_mobile {
+    width: 80%;
+  }
+  background-color: white;
+  @include border_rad(6px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  min-height: 60px;
+  @include set_shadow(0px 0px 24px 4px rgba(0, 0, 0, 0.69));
+  @include flex();
+  @include flex_justify(space-between);
+
+  .illustration {
+    text-align: center;
+
+    img {
+      width: 125px;
+    }
+  }
+
+  .content {
+    text-align: center;
+
+    h1, h2, h3, h4, p {
+      text-align: center;
+    }
+
+    a, a:visited {
+      color: black;
+      font-size: 18px;
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: #0b93db;
+      @include set_shadow(0px 0px 24px 4px rgba(0, 0, 0, 0.30));
+      @include border_rad(6px);
+    }
+
+    a:hover {
+      background-color: #00bceb;
+      @include set_shadow(0px 0px 24px 4px rgba(0, 0, 0, 0.70));
+      @include border_rad(6px);
+    }
+
+  }
+
+}
