@@ -127,68 +127,103 @@ export class Race {
   advanceAllRunners(haveWinner: any) {
     let listOfRunners = [];
     for (let i = 0; i < this.numberOfRacers; i++) {
-      listOfRunners.push(i);
+      /**
+       * We only wnt to shuffle those active ones so we don't
+       * over use the process
+       */
+      if (this.racers[i].isActive() && !this.racers[i].isWinner()) {
+        listOfRunners.push(i);
+      }
     }
 
     listOfRunners = this.shuffle(listOfRunners);
 
-    for (let i = 0; i < this.numberOfRacers; i++) {
+    // console.log('List of runners', listOfRunners);
+
+    for (let i = 0; i < listOfRunners.length; i++) {
       // listOfRunners[i];
-      // @ts-ignore
-      this.racers[listOfRunners[i]].advance();
+      try {
+        // @ts-ignore
+        this.racers[listOfRunners[i]].advance();
+      } catch (exception) {
+        console.log('Error reading list of runners', listOfRunners[i]);
+      }
+
+
+      /**
+       * First We stop the race if all participants are winners
+       */
+
+      const notWinners = this.racers.filter((participant: Racer) => {
+        return !participant.isWinner() && participant.isActive();
+      });
+
+
+      // this.l('Is this elimination mode?');
+      // this.l(this.eliminationMode);
+
+
       // @ts-ignore
       if (this.racers[listOfRunners[i]].isWinner()) {
 
         /**
-         * If elimination mode is enabled and there are more than 2 racers running, then we need to reset all racers
+         * If elimination mode is enabled and there is only one active not winner racer, then we need to reset all racers
          * and "disable" the one that was last.
          */
         const activeRacers = this.racers.filter((r: any) => r.isActive());
-        this.l('Active Racers: ' + activeRacers.length);
-        this.l('Elimination Mode: ' + this.eliminationMode);
+        // this.l('Active Racers: ' + activeRacers.length);
+        // this.l('Elimination Mode: ' + this.eliminationMode);
+
+        if (this.eliminationMode.toString().toLowerCase() === 'true' && activeRacers.length === 2) {
+          this.l('One last racer has won');
+          const winner = this.racers[listOfRunners[i]].name;
+          this.l('Winner is: ' + winner);
+          this.l('Elimination mode' + this.eliminationMode);
+          haveWinner(winner);
+          clearInterval(this.timerObject);
+          return;
+        }
+
 
         /**
          * I know I shouldn't convert this to string to compare it to "true", but
          * I don't know why it was not working as it should before. This is something I need to dig into
          * and see why it was not working as expected
          */
-        if (this.eliminationMode.toString() === 'true' && activeRacers.length > 2 ) { // If there are only 2 racers, then it is a regular elimination
+        if (this.eliminationMode.toString().toLowerCase() === 'true' && notWinners.length === 1) { // If there are only 2 racers, then it is a regular elimination
 //
           this.l('Elimination mode active [' + this.eliminationMode + ']. Removing one racer.');
 
-          let auxPosition = 99999;
-          let auxRacer = -1;
+          const lastOne = this.racers.findIndex((r: Racer) => {
+            return r.isActive() && !r.isWinner();
+          });
+
+          this.racers[lastOne].disableRacer();
 
           /**
            * We need to disable the last one and reset all of them
            */
           for (let i = 0; i < this.racers.length; i++) {
-            if (this.racers[i].getPercent() < auxPosition && this.racers[i].isActive()) {
-              auxPosition = this.racers[i].getPercent();
-              auxRacer = i;
-            }
             // @ts-ignore
             this.racers[i].reset();
           }
 
-          /**
-           * Now that we now who is the one being eliminated then we disable it
-           */
-          this.racers[auxRacer].disableRacer();
-
-
-        } else {
-          this.l('This was not an elimination [' + this.eliminationMode + '] race');
-          this.l('We have a winner!');
+        } else if (this.eliminationMode.toString().toLowerCase() === 'false') {
+          // this.l('This was not an elimination [' + this.eliminationMode + '] race');
+          // this.l('We have a winner!');
           // @ts-ignore
           const winner = this.racers[listOfRunners[i]].name;
           this.l('Winner is: ' + winner);
-          clearInterval(this.timerObject);
+          this.l('Elimination mode' + this.eliminationMode);
           haveWinner(winner);
+          clearInterval(this.timerObject);
+          return;
 
         }
         break;
       }
+
+
     }
 
   }
@@ -211,23 +246,6 @@ export class Race {
         array[randomIndex], array[currentIndex]];
     }
     return array;
-  }
-
-  /**
-   * This will advance one single runner
-   */
-  advanceSingleRunner() {
-    const runner = Math.floor(Math.random() * this.numberOfRacers);
-    // @ts-ignore
-    this.racers[runner].advance();
-
-    // @ts-ignore
-    if (this.racers[runner].isWinner()) {
-      this.l('We have a winner!');
-      // @ts-ignore
-      this.l('Winner is: ' + this.racers[runner].name);
-      clearInterval(this.timerObject);
-    }
   }
 
 

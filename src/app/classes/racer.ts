@@ -14,7 +14,7 @@ export class Racer {
    */
   private _minValue = 0;
   /**
-   * The max and winnder value
+   * The max and winner value
    * @private
    */
   private _maxValue = 10000;
@@ -82,6 +82,10 @@ export class Racer {
       return;
     }
 
+    if(this.isWinner()){
+      return;
+    }
+
     /**
      * Getting the next step
      */
@@ -104,6 +108,10 @@ export class Racer {
     }
 
     this.currentStep += step;
+
+    if(this.currentStep > this.maxValue){
+      this.currentStep = this.maxValue;
+    }
 
   }
 
@@ -129,9 +137,9 @@ export class Racer {
    */
   isWinner(): boolean {
     const aux = (this._currentStep >= this._maxValue);
-    if(aux){
+    /*if(aux){
       console.log(this);
-    }
+    }*/
     return aux;
   }
 

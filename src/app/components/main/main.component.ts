@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
 
   public horseStamina = true;
 
-  public eliminationMode = false;
+  public eliminationMode = true;
 
   private race: any = null;
 
