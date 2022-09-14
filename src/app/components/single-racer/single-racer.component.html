@@ -27,7 +27,7 @@
   </div>
 
   <div class="identifier">
-    <div class="label">
+    <div [ngClass]="{'label': true, 'inactive': !this.racer.isActive()}">
       {{ this.racer.name }} [{{ this.getRacerPercent() }}%]
     </div>
   </div>
@@ -35,7 +35,7 @@
   <div class="jockey_space" style="left:{{this.racer.getPercent()}}%">
 
     <img *ngIf="this.racer.isActive()" src="assets/img/jockey.gif"  class="jockey" />
-    <img *ngIf="!this.racer.isActive()" src="assets/img/rip.png"  class="jockey" />
+    <img *ngIf="!this.racer.isActive()" src="assets/img/rip.png"  class="jockey animate__animated animate__flash  animate__repeat-2" />
   </div>
 
 

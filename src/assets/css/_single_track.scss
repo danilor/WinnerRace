@@ -35,6 +35,9 @@ $barH: 30px;
       color: black;
       font-weight: bold;
       text-align: center;
+      &.inactive{
+        opacity: 0.5;
+      }
     }
   }
 

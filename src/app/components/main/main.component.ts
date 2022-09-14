@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
   public availableRacersOptions: any[] = [];
   public numberOfRacers: number = 10; // The amount of racers
   public numberOfSteps: number = 500;
+  public milliseconds: number = 1500;
 
   public horseStamina = true;
 
@@ -23,6 +24,29 @@ export class MainComponent implements OnInit {
   public availableNumberOfSteps = [
     100, 200, 250, 300, 400, 500, 750, 1000, 1500, 2000, 2500, 5000, 10000
   ];
+
+  public availableMillisecondsOptions: any[] = [
+    {
+      label: '0.5 seconds',
+      value: 500
+    },
+    {
+      label: '1.0 second',
+      value: 1000
+    },
+    {
+      label: '1.5 seconds',
+      value: 1500
+    },
+    {
+      label: '2.0 seconds',
+      value: 2000
+    },
+    {
+      label: '2.5 seconds',
+      value: 2500
+    }
+  ]
 
 
   private timeBeforeCelebration = 800; // In milliseconds
@@ -47,7 +71,9 @@ export class MainComponent implements OnInit {
     this.race.setDurationParameters(0, this.numberOfSteps);
     this.race.setUpStaminaMode(this.horseStamina);
     this.race.setUpEliminationMode(this.eliminationMode);
+    this.race.setIntervalPause(this.milliseconds);
     this.race.generateRacers(parseInt(this.numberOfRacers.toString()));
+
   }
 
   /**

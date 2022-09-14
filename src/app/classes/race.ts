@@ -55,6 +55,14 @@ export class Race {
     this.eliminationMode = elimination;
   }
 
+  /**
+   * It sets the interval time
+   * @param milliseconds
+   */
+  setIntervalPause(milliseconds: number): void{
+    this.intervalPausedTimeInMilliseconds = milliseconds;
+  }
+
 
   /**
    * This will generate every single racer

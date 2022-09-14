@@ -54,6 +54,19 @@
         </div>
       </div>
 
+
+      <div *ngIf="this.eliminationMode.toString().toLowerCase() === 'true'" class="control_element" [attr.data-tootik]="'Define how much the racers are going to wait to start a new lap'" data-tootik-conf="bottom shadow multiline">
+        <label>
+          Waiting time
+        </label>
+        <div class="field">
+          <select [(ngModel)]="this.milliseconds" (change)="this.buildRace()">
+            <option [value]="o.value" *ngFor="let o of this.availableMillisecondsOptions">{{ o.label }}</option>
+
+          </select>
+        </div>
+      </div>
+
     </div>
     <div class="track">
       <div class="space">
