@@ -10,6 +10,9 @@ export class Race {
 
   private timerObject: any = null;
 
+  private intervalPaused = false;
+  private intervalPausedTimeInMilliseconds = 1500;
+
   private startingValue = 0;
   private endingValue = 10000;
 
@@ -108,9 +111,11 @@ export class Race {
        */
 
       this.timerObject = setInterval(() => {
-        this.advanceAllRunners((winner: any) => {
-          myResult(winner);
-        });
+        if(!this.intervalPaused){
+          this.advanceAllRunners((winner: any) => {
+            myResult(winner);
+          });
+        }
       }, this.timer);
 
 
@@ -199,6 +204,16 @@ export class Race {
           });
 
           this.racers[lastOne].disableRacer();
+
+
+          /**
+           * We temporally cancel the interval
+           */
+          this.intervalPaused = true;
+
+          setTimeout(()=>{
+            this.intervalPaused = false;
+          }, this.intervalPausedTimeInMilliseconds);
 
           /**
            * We need to disable the last one and reset all of them

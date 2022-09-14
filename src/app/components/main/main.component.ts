@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
 
   public availableRacersOptions: any[] = [];
   public numberOfRacers: number = 10; // The amount of racers
-  public numberOfSteps: number = 1000;
+  public numberOfSteps: number = 500;
 
   public horseStamina = true;
 
@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
   public raceInProgress = false;
 
   public availableNumberOfSteps = [
-    100, 500, 750, 1000, 1500, 2000, 2500, 5000, 10000
+    100, 200, 250, 300, 400, 500, 750, 1000, 1500, 2000, 2500, 5000, 10000
   ];
 
 

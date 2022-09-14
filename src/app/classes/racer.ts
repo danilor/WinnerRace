@@ -68,6 +68,7 @@ export class Racer {
    */
   reset(): void{
     this.currentStep = 0;
+
   }
 
   /**
