@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-fans',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fans.component.css']
 })
 export class FansComponent implements OnInit {
+
+  @Input() racers: number = 10;
+  @Input() showRacers: boolean = false;
+
 
   constructor() { }
 

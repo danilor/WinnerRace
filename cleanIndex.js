@@ -24,6 +24,11 @@ $('style').remove();
  * These lines of code are being added per client requirement
  */
 $('head').append('\n<meta name="uniqueID"  content="' + uniqueId + '" />\n');
+$('head').append(`
+<link href="https://fonts.googleapis.com/css2?family=Qahiri&family=Roboto:wght@100&display=swap" rel="stylesheet"/>
+`);
+
+
 let newHtml = $.html();
 newHtml = newHtml.split('.js').join('.js?uniqueID='+uniqueId);
 newHtml = newHtml.split('.css').join('.css?uniqueID='+uniqueId);

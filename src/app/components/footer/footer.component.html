@@ -1,5 +1,13 @@
 <footer>
   <div class="powered">
-    Powered by <a  [attr.data-tootik]="'The Source of Awesomeness'" data-tootik-conf="bottom shadow" href="https://www.instagram.com/daniloramirezcr_thearkhive/" [target]="'_blank'">The Arkhive</a>
+    <!--    Powered by <a  [attr.data-tootik]="'The Source of Awesomeness'" data-tootik-conf="bottom shadow" href="https://www.instagram.com/daniloramirezcr_thearkhive/" [target]="'_blank'">The Arkhive</a>-->
+    <a
+      *ngFor="let icon of this.icons; let i = index;"
+      href="javascript:void(0)"
+      (click)="icon.action()"
+      [attr.data-tootik]="icon.label"
+    >
+      <img [src]="icon.img"/>
+    </a>
   </div>
 </footer>

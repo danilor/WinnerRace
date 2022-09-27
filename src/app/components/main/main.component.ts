@@ -9,9 +9,13 @@ import {Race} from "../../classes/race";
 export class MainComponent implements OnInit {
 
   public availableRacersOptions: any[] = [];
-  public numberOfRacers: number = 10; // The amount of racers
+  public numberOfRacers: number = 20; // The amount of racers
   public numberOfSteps: number = 500;
   public milliseconds: number = 1500;
+
+  public editingRacers: boolean = false;
+  public racers: any = [];
+  public racersModifiableList: string = '';
 
   public horseStamina = true;
 
@@ -58,8 +62,20 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.availableRacersOptions = this.getAvailableRacerOptions();
+    this.generateRacers();
     this.buildRace();
 
+  }
+
+  /**
+   * This will generate all racers
+   */
+  generateRacers(): void {
+    console.log('Generating Racers');
+    this.racers = [];
+    for (let i = 1; i <= this.numberOfRacers; i++) {
+      this.racers.push('Racer ' + i);
+    }
   }
 
 
@@ -72,7 +88,7 @@ export class MainComponent implements OnInit {
     this.race.setUpStaminaMode(this.horseStamina);
     this.race.setUpEliminationMode(this.eliminationMode);
     this.race.setIntervalPause(this.milliseconds);
-    this.race.generateRacers(parseInt(this.numberOfRacers.toString()));
+    this.race.generateRacers(parseInt(this.racers.length.toString()));
 
   }
 
@@ -109,7 +125,38 @@ export class MainComponent implements OnInit {
       }, this.timeBeforeCelebration);
     });
     this.raceInProgress = true;
+    return;
   }
 
+  editRacers(): void {
+    this.editingRacers = true;
+    this.racersModifiableList = this.racers.join('\n');
+    return;
+  }
+
+  cancelEditRacers(): void {
+    this.editingRacers = false;
+    return;
+  }
+
+  saveEditRacers(): void {
+    this.editingRacers = false;
+    this.racers = this.racersModifiableList.split('\n').filter((r: string) => r !== '');
+    this.buildRace();
+    return;
+  }
+
+
+  /**
+   * It will return the racer number
+   * @param number
+   */
+  getRacerNameByNumber(number: string): string {
+    return this.racers[parseInt(number.toString(), 10)];
+  }
+
+  getLastWinnerNumber(modifier: number){
+    return parseInt(this.lastWinner,10) + modifier;
+  }
 
 }

@@ -1,0 +1,47 @@
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.led7Display{
+  width: 100%;
+  background-color: darkgray;
+  border: 1px solid black;
+  min-height: 30px;
+  span{
+    color: lawngreen!important;
+    line-height: 100%;
+    font-size: 9em;
+    position: relative;
+    font-family: 'Qahiri', sans-serif;
+    @include flex();
+    @include flex_absolute_center();
+    margin-left: 5px;
+  }
+}
+
+.led7Display.square_small{
+  cursor: pointer;
+  width: 100px;
+  padding:10px 10px;
+  span{
+    font-size: 5em;
+    line-height: 70%;
+  }
+  label{
+    color: lawngreen!important;
+    @include flex();
+    @include flex_absolute_center();
+    width: 100%;
+    line-height: 100%;
+  }
+}

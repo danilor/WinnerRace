@@ -1,0 +1,14 @@
+<div *ngIf="this.version === 'normal'" class="led7Display crt">
+  <span>
+  {{ this.number }}
+  </span>
+</div>
+
+<div *ngIf="this.version === 'square_small'" class="led7Display square_small crt">
+  <span>
+  {{ this.number }}
+  </span>
+  <label>
+    {{ this.racerLabel }}
+  </label>
+</div>

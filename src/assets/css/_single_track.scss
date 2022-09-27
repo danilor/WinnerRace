@@ -27,14 +27,17 @@ $barH: 30px;
     left: 0;
     opacity: 0.3;
     @include flex();
-    @include flex_absolute_center();
+    //@include flex_absolute_center();
+    @include flex_justify(center);
+    @include flex_align(center);
 
     .label {
-      min-width: 15%;
+      min-width: 18%;
       background-color: white;
       color: black;
       font-weight: bold;
       text-align: center;
+      margin-left: 10px;
       &.inactive{
         opacity: 0.5;
       }

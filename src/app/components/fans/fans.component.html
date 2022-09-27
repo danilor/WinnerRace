@@ -1,1 +1,6 @@
-<div class="fans_zone"></div>
+<div class="fans_zone">
+  <div [attr.data-tootik]="'Today we have '+this.racers+' racers!'" data-tootik-conf="left shadow" class="display"
+       *ngIf="this.showRacers">
+    <app-led7-display [version]="'square_small'" [number]="this.racers"></app-led7-display>
+  </div>
+</div>

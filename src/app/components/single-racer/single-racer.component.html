@@ -1,26 +1,3 @@
-<!--<table border="1" width="auto">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th>-->
-<!--      Name-->
-<!--    </th>-->
-<!--    <th>-->
-<!--      Current Value-->
-<!--    </th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr>-->
-<!--    <td>-->
-<!--      {{ this.racer.name }}-->
-<!--    </td>-->
-<!--    <td>-->
-<!--      {{ this.racer.currentStep }}-->
-<!--    </td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
-
 <div class="single_track">
 
   <div class="progressBar" style="width:{{this.racer.getPercent()}}%">
@@ -28,7 +5,7 @@
 
   <div class="identifier">
     <div [ngClass]="{'label': true, 'inactive': !this.racer.isActive()}">
-      {{ this.racer.name }} [{{ this.getRacerPercent() }}%]
+      [{{ this.addTrailingZeros(this.getRacerPercent(), 2) }}%] {{ (this.name ? this.name : this.racer.name) }}
     </div>
   </div>
 

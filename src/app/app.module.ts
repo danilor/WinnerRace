@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { ScreenRestrictionComponent } from './components/screen-restriction/scre
 import { WinnerModalComponent } from './components/winner-modal/winner-modal.component';
 import { FansComponent } from './components/fans/fans.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Led7DisplayComponent } from './components/led7-display/led7-display.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ScreenRestrictionComponent,
     WinnerModalComponent,
     FansComponent,
-    FooterComponent
+    FooterComponent,
+    Led7DisplayComponent
   ],
   imports: [
     BrowserModule,

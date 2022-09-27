@@ -1,77 +1,145 @@
 <div class="main_space">
 
-  <app-fans></app-fans>
+  <app-fans [racers]="this.getAllRacers().length" [showRacers]="true"></app-fans>
 
   <div class="interaction_zone">
     <div class="controls" *ngIf="!this.raceInProgress">
-      <div class="start" [attr.data-tootik]="'Start Race'" data-tootik-conf="bottom shadow">
-        <img (click)="this.startRace()" src="assets/img/gun.jpg" alt="Start" />
-      </div>
 
-      <div class="control_element" [attr.data-tootik]="'Define how many racers are going to participate'" data-tootik-conf="bottom shadow multiline">
-        <label>
-          Number of Racers
-        </label>
-        <div class="field">
-          <select [(ngModel)]="this.numberOfRacers" (change)="this.buildRace()">
-            <option [value]="o" *ngFor="let o of this.availableRacersOptions">{{ o }}</option>
-          </select>
+
+      <div class="edit_racers" *ngIf="this.editingRacers">
+        <div class="control_element">
+          <label>
+            Participants List
+          </label>
+          <div class="instructions">
+           One per line
+          </div>
+          <div class="field">
+            <textarea class="racers_list" [(ngModel)]="this.racersModifiableList"></textarea>
+          </div>
+
+
+          <button (click)="this.saveEditRacers();" [attr.data-tootik]="'Save'" data-tootik-conf="bottom shadow">
+            Save
+          </button>
+
+          <button (click)="this.cancelEditRacers();" [attr.data-tootik]="'Cancel and go back'" data-tootik-conf="bottom shadow">
+            Cancel
+          </button>
+
+
         </div>
       </div>
 
-      <div class="control_element" [attr.data-tootik]="'The more steps, the longer the race'" data-tootik-conf="bottom shadow multiline">
-        <label>
-          Number of Steps
-        </label>
-        <div class="field">
-          <select [(ngModel)]="this.numberOfSteps" (change)="this.buildRace()">
-            <option [value]="o" *ngFor="let o of this.availableNumberOfSteps">{{ o }} steps</option>
-          </select>
+      <div class="main_controls" *ngIf="!this.editingRacers">
+        <div class="start" [attr.data-tootik]="'Start Race'" data-tootik-conf="bottom shadow">
+          <img (click)="this.startRace()" src="assets/img/gun.jpg" alt="Start"/>
+        </div>
+
+        <!--<div class="control_element" [attr.data-tootik]="'Define how many racers are going to participate'"
+             data-tootik-conf="bottom shadow multiline">
+          <label>
+            Number of Racers
+          </label>
+          <div class="field">
+            <select [(ngModel)]="this.numberOfRacers" (change)="this.buildRace()">
+              <option [value]="o" *ngFor="let o of this.availableRacersOptions">{{ o }}</option>
+            </select>
+          </div>
+        </div>-->
+<!--
+        <div class="control_element"
+             [attr.data-tootik]="'We are having '+this.getAllRacers().length+' participants for this race'"
+             data-tootik-conf="bottom shadow multiline">
+          <label>
+            Participants
+          </label>
+          <app-led7-display [number]="this.getAllRacers().length"></app-led7-display>
+
+        </div>
+-->
+        <div class="control_element">
+          <button (click)="this.editRacers();">
+            Edit Participants
+          </button>
+        </div>
+
+        <div class="control_element" [attr.data-tootik]="'Generate this amount of racers'"
+            data-tootik-conf="bottom shadow multiline">
+         <label>
+           Generate Racers
+         </label>
+         <div class="field">
+           <select [(ngModel)]="this.numberOfRacers">
+             <option [value]="o" *ngFor="let o of this.availableRacersOptions">{{ o }}</option>
+           </select>
+         </div>
+          <button (click)="this.generateRacers(); this.buildRace();">
+            Generate
+          </button>
+       </div>
+
+        <div class="control_element" [attr.data-tootik]="'The more steps, the longer the race'"
+             data-tootik-conf="bottom shadow multiline">
+          <label>
+            Number of Steps
+          </label>
+          <div class="field">
+            <select [(ngModel)]="this.numberOfSteps" (change)="this.buildRace()">
+              <option [value]="o" *ngFor="let o of this.availableNumberOfSteps">{{ o }} steps</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control_element"
+             [attr.data-tootik]="'If yes, the horses will get tired when getting closer to the end of the track'"
+             data-tootik-conf="bottom shadow multiline">
+          <label>
+            Horse Stamina
+          </label>
+          <div class="field">
+            <select [(ngModel)]="this.horseStamina" (change)="this.buildRace()">
+              <option [value]="true">Yes</option>
+              <option [value]="false">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control_element" [attr.data-tootik]="'Several rounds and less racers per round'"
+             data-tootik-conf="bottom shadow multiline">
+          <label>
+            Elimination Mode
+          </label>
+          <div class="field">
+            <select [(ngModel)]="this.eliminationMode" (change)="this.buildRace()">
+              <option [value]="true">Yes</option>
+              <option [value]="false">No</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div *ngIf="this.eliminationMode.toString().toLowerCase() === 'true'" class="control_element"
+             [attr.data-tootik]="'Define how much the racers are going to wait to start a new lap'"
+             data-tootik-conf="bottom shadow multiline">
+          <label>
+            Waiting time
+          </label>
+          <div class="field">
+            <select [(ngModel)]="this.milliseconds" (change)="this.buildRace()">
+              <option [value]="o.value" *ngFor="let o of this.availableMillisecondsOptions">{{ o.label }}</option>
+
+            </select>
+          </div>
         </div>
       </div>
 
-      <div class="control_element" [attr.data-tootik]="'If yes, the horses will get tired when getting closer to the end of the track'" data-tootik-conf="bottom shadow multiline">
-        <label>
-          Horse Stamina
-        </label>
-        <div class="field">
-          <select [(ngModel)]="this.horseStamina" (change)="this.buildRace()">
-            <option [value]="true">Yes</option>
-            <option [value]="false">No</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="control_element" [attr.data-tootik]="'Several rounds and less racers per round'" data-tootik-conf="bottom shadow multiline">
-        <label>
-          Elimination Mode
-        </label>
-        <div class="field">
-          <select [(ngModel)]="this.eliminationMode" (change)="this.buildRace()">
-            <option [value]="true">Yes</option>
-            <option [value]="false">No</option>
-          </select>
-        </div>
-      </div>
-
-
-      <div *ngIf="this.eliminationMode.toString().toLowerCase() === 'true'" class="control_element" [attr.data-tootik]="'Define how much the racers are going to wait to start a new lap'" data-tootik-conf="bottom shadow multiline">
-        <label>
-          Waiting time
-        </label>
-        <div class="field">
-          <select [(ngModel)]="this.milliseconds" (change)="this.buildRace()">
-            <option [value]="o.value" *ngFor="let o of this.availableMillisecondsOptions">{{ o.label }}</option>
-
-          </select>
-        </div>
-      </div>
 
     </div>
     <div class="track">
       <div class="space">
         <ng-container *ngFor="let racer of this.getAllRacers(); let i = index;">
-          <app-single-racer [racer]="racer"></app-single-racer>
+          <app-single-racer [racer]="racer" [name]="this.racers[i]"></app-single-racer>
         </ng-container>
       </div>
     </div>
@@ -79,7 +147,7 @@
 
   <app-footer></app-footer>
 
-  <app-winner-modal [winner]="this.lastWinner" *ngIf="this.lastWinner !== ''"></app-winner-modal>
+  <app-winner-modal [winner]="getRacerNameByNumber(this.getLastWinnerNumber(-1).toString())" *ngIf="this.lastWinner !== ''"></app-winner-modal>
 
 </div>
 

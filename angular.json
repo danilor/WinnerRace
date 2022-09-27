@@ -25,6 +25,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "extractCss": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -54,7 +55,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "none"
+              "outputHashing": "none",
+              "extractCss": false
             },
             "development": {
               "buildOptimizer": false,
@@ -62,7 +64,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "extractCss": false
             }
           },
           "defaultConfiguration": "production"

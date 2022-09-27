@@ -9,6 +9,7 @@ import {Racer} from "../../classes/racer";
 export class SingleRacerComponent implements OnInit {
 
   @Input() racer: any = null;
+  @Input() name: string = '';
 
   constructor() { }
 
@@ -22,6 +23,15 @@ export class SingleRacerComponent implements OnInit {
     return Math.floor(this.racer.getPercent())
   }
 
+  addTrailingZeros(number: number,numZeros: number){
+
+    let numberOfZeros = '';
+    if( number.toString().length < numZeros ){
+      numberOfZeros = "0".repeat( (numZeros - number.toString().length) );
+    }
+
+    return (numberOfZeros + number);
+  };
 
 
 }
