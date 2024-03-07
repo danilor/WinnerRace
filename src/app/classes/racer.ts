@@ -120,12 +120,6 @@ export class Racer {
     if (this.currentStep > this.maxValue) {
       this.currentStep = this.maxValue;
     }
-
-    /**if (this.label.toLowerCase().includes('danilo')) {
-      this.currentStep *= 1.0023;
-      return;
-    }**/
-
     return;
 
   }
