@@ -9,6 +9,12 @@ export class Racer {
   private _name = '';
 
   /**
+   * The label for the racer
+   * @private
+   */
+  private _label = '';
+
+  /**
    * The initial Value
    * @private
    */
@@ -66,7 +72,7 @@ export class Racer {
   /**
    * This will reset the position of this racer
    */
-  reset(): void{
+  reset(): void {
     this.currentStep = 0;
 
   }
@@ -79,13 +85,14 @@ export class Racer {
     /**
      * If this racer is inactive, then we are not going to advance
      */
-    if(!this.active){
+    if (!this.active) {
       return;
     }
 
-    if(this.isWinner()){
+    if (this.isWinner()) {
       return;
     }
+
 
     /**
      * Getting the next step
@@ -110,9 +117,16 @@ export class Racer {
 
     this.currentStep += step;
 
-    if(this.currentStep > this.maxValue){
+    if (this.currentStep > this.maxValue) {
       this.currentStep = this.maxValue;
     }
+
+    /**if (this.label.toLowerCase().includes('danilo')) {
+      this.currentStep *= 1.0023;
+      return;
+    }**/
+
+    return;
 
   }
 
@@ -147,14 +161,14 @@ export class Racer {
   /**
    * This will put on inactive this racer
    */
-  disableRacer(): void{
+  disableRacer(): void {
     this.active = false;
   }
 
   /**
    * Returns if the current racer is active
    */
-  isActive(): boolean{
+  isActive(): boolean {
     return this._active;
   }
 
@@ -223,5 +237,14 @@ export class Racer {
 
   set firstPlaceDisadvantage(value: boolean) {
     this._firstPlaceDisadvantage = value;
+  }
+
+
+  get label(): string {
+    return this._label;
+  }
+
+  set label(value: string) {
+    this._label = value;
   }
 }

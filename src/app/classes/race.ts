@@ -68,7 +68,7 @@ export class Race {
    * This will generate every single racer
    * @param numberOfRacers
    */
-  generateRacers(numberOfRacers: number = 10) {
+  generateRacers(numberOfRacers: number = 10, racers: string[] = []) {
     this.numberOfRacers = numberOfRacers;
 
     this.i('Generating Racers > ' + this.numberOfRacers.toFixed());
@@ -78,6 +78,9 @@ export class Race {
       aux.minValue = this.startingValue;
       aux.maxValue = this.endingValue;
       aux.name = (i + 1).toString();
+      if( racers[i] !== undefined && racers[i] !== null ){
+        aux.label = racers[i];
+      }
       aux.firstPlaceDisadvantage = this.takeIntoCountHorseStamina;
       this.racers.push(aux);
     }

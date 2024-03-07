@@ -1,0 +1,61 @@
+$barH: 30px;
+
+.single_track {
+  width: 100%;
+  min-height: $barH;
+  //background-color: white;
+  position: relative;
+  border-top: 1px dashed white;
+  border-left: 3px white solid;
+  border-right: 3px white solid;
+
+
+  .progressBar {
+    //background-color: lightgreen;
+    min-height: $barH;
+    position: relative;
+    //background-image: linear-gradient(45deg, #4b6efa 25%, #f71348 25%, #f71348 50%, #4b6efa 50%, #4b6efa 75%, #f71348 75%, #f71348 100%);
+    //background-size: 56.57px 56.57px;
+
+  }
+
+  .identifier {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    @include flex();
+    //@include flex_absolute_center();
+    @include flex_justify(center);
+    @include flex_align(center);
+
+    .label {
+      min-width: 18%;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      margin-left: 10px;
+      &.inactive{
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .jockey_space {
+    position: absolute;
+    top: 0;
+    @include set_transition(all 250ms linear);
+
+    img {
+      width: 50px;
+      position: absolute;
+      top: -5px;
+      left: -50px;
+    }
+  }
+
+}
+

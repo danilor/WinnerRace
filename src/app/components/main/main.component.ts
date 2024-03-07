@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
 
   public eliminationMode = true;
 
-  private race: any = null;
+  private race: Race | null = null;
 
   public raceInProgress = false;
 
@@ -88,7 +88,7 @@ export class MainComponent implements OnInit {
     this.race.setUpStaminaMode(this.horseStamina);
     this.race.setUpEliminationMode(this.eliminationMode);
     this.race.setIntervalPause(this.milliseconds);
-    this.race.generateRacers(parseInt(this.racers.length.toString()));
+    this.race.generateRacers(parseInt(this.racers.length.toString()), this.racers);
 
   }
 
@@ -118,7 +118,7 @@ export class MainComponent implements OnInit {
 
 
   startRace() {
-    this.race.startRace().then((winner: any) => {
+    this.race!.startRace().then((winner: any) => {
       setTimeout(() => {
         eval('startConfetti()');
         this.lastWinner = winner;
