@@ -1,6 +1,6 @@
 <div class="single_track">
 
-  <div class="progressBar" style="width:{{this.racer.getPercent()}}%">
+  <div class="progressBar" [ngStyle]="{width:this.racer.getPercent()}">
   </div>
 
   <div class="identifier">
@@ -9,10 +9,13 @@
     </div>
   </div>
 
-  <div class="jockey_space" style="left:{{this.racer.getPercent()}}%">
+  <div *ngIf="this.racer.isActive()" class="jockey_space" [ngStyle]="{left: this.racer.getPercent()+'%'}">
 
     <img *ngIf="this.racer.isActive()" src="assets/img/jockey.gif"  class="jockey" />
-    <img *ngIf="!this.racer.isActive()" src="assets/img/rip.png"  class="jockey animate__animated animate__flash  animate__repeat-2" />
+  </div>
+
+  <div *ngIf="!this.racer.isActive()" class="jockey_space" [ngStyle]="{left: '0%'}">
+    <img  src="assets/img/rip.png"  class="jockey animate__animated animate__flash  animate__repeat-2" />
   </div>
 
 

@@ -28,7 +28,7 @@
  **************************/
 
 // usually, build is for react projects and dist is for angular projects. Please change accordingly
-const folders = ['build', 'dist'];
+const folders = ['build', 'dist', 'docs'];
 
 // This is the list of extensions we want to remove from this folder (recursively).
 // It works with full filenames as well

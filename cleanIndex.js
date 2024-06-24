@@ -8,9 +8,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-const originalHTMLPath = 'dist/index.html';
+const originalHTMLPath = 'docs/index.html';
 // const newHTMLPath = 'dist/index.php';
-const newHTMLPath = 'dist/index.html';
+const newHTMLPath = 'docs/index.html';
 
 const html = fs.readFileSync(originalHTMLPath);
 

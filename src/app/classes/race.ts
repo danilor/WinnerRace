@@ -195,6 +195,11 @@ export class Race {
           const winner = this.racers[listOfRunners[i]].name;
           this.l('Winner is: ' + winner);
           this.l('Elimination mode' + this.eliminationMode);
+          const lastOne = this.racers.findIndex((r: Racer) => {
+            return r.isActive() && !r.isWinner();
+          });
+
+          this.racers[lastOne].disableRacer();
           haveWinner(winner);
           clearInterval(this.timerObject);
           return;

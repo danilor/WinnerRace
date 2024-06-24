@@ -27,13 +27,13 @@ export class FooterComponent implements OnInit {
         window.open('https://www.instagram.com/daniloramirezcr_thearkhive/');
       }
     },
-    {
+    /*{
       label: 'Replit',
       img: './assets/img/icons/apps.svg',
       action: ()=>{
         window.open('https://replit.com/@arkofdan');
       }
-    },
+    },*/
     {
       label: 'Github',
       img: './assets/img/icons/github.svg',

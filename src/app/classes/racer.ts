@@ -55,6 +55,7 @@ export class Racer {
 
   /**
    *
+   * @param name string
    * @param minvalue
    * @param maxValue
    * @param minStep
