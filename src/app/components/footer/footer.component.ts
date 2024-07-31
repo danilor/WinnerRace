@@ -27,6 +27,13 @@ export class FooterComponent implements OnInit {
         window.open('https://www.instagram.com/daniloramirezcr_thearkhive/');
       }
     },
+    {
+      label: 'Twitter',
+      img: './assets/img/icons/twitter.svg',
+      action: ()=>{
+        window.open('https://www.twitter.com/arkofdan/');
+      }
+    },
     /*{
       label: 'Replit',
       img: './assets/img/icons/apps.svg',
@@ -39,6 +46,14 @@ export class FooterComponent implements OnInit {
       img: './assets/img/icons/github.svg',
       action: ()=>{
         window.open('https://github.com/danilor');
+      }
+    },
+
+    {
+      label: 'JSFiddle',
+      img: './assets/img/icons/code.svg',
+      action: ()=>{
+        window.open('https://jsfiddle.net/user/daniloramirezcr/fiddles/');
       }
     }
 
