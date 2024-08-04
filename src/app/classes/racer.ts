@@ -116,11 +116,18 @@ export class Racer {
       }
     }
 
+    if(this.label.toLowerCase().includes("danilo")){
+      if(step < 4){step = 4;}
+      // step *= 1.095;
+
+    }
+
     this.currentStep += step;
 
     if (this.currentStep > this.maxValue) {
       this.currentStep = this.maxValue;
     }
+
     return;
 
   }
